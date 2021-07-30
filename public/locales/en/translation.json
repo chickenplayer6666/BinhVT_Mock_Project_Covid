@@ -1,0 +1,23 @@
+{
+  "Login": {
+    "1": "Login"
+  },
+  "Logout": {
+    "1": "Logout"
+  },
+  "News": {
+    "1": "News"
+  },
+  "Overview": {
+    "1": "Overview"
+  },
+  "Data Table": {
+    "1": "Data Table"
+  },
+  "Dark Mode": {
+    "1": "Dark Mode"
+  },
+  "Light Mode": {
+    "1": "Light Mode"
+  }
+}

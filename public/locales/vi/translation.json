@@ -1,0 +1,23 @@
+{
+  "Login": {
+    "1": "Đăng Nhập"
+  },
+  "Logout": {
+    "1": "Đăng Xuất"
+  },
+  "News": {
+    "1": "Tin Tức"
+  },
+  "Overview": {
+    "1": "Tổng Quan"
+  },
+  "Data Table": {
+    "1": "Dữ Liệu Thống Kê"
+  },
+  "Dark Mode": {
+    "1": "Chế Độ Tối"
+  },
+  "Light Mode": {
+    "1": "Chế Độ Sáng"
+  }
+}

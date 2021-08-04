@@ -72,6 +72,22 @@ const initWorldMapOptions = (mapWorld, data) => {
         enableMouseTracking: true,
       },
     ],
+    responsive: {
+      rules: [
+        {
+          condition: {
+            maxWidth: 500,
+          },
+          chartOptions: {
+            legend: {
+              align: "center",
+              verticalAlign: "bottom",
+              layout: "horizontal",
+            },
+          },
+        },
+      ],
+    },
   };
 };
 

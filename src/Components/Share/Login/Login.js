@@ -13,7 +13,7 @@ import {
   FormStyles,
 } from "../../../MaterialUI/ExportComponent";
 import { BooleansOfPageActions } from "../../../redux/slices/setBooleansOfPage";
-import "./Login.scss";
+import "./Login.css";
 
 function Login(props) {
   const classes = FormStyles();

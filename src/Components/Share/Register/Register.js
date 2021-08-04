@@ -9,6 +9,7 @@ import {
   TextField,
   Typography,
   FormStyles,
+  Alert,
 } from "../../../MaterialUI/ExportComponent";
 import validateFormRegister from "../../../Utils/validateFormRegister";
 import { useHistory } from "react-router-dom";
@@ -26,6 +27,7 @@ function Register(props) {
     confirmPassword: "",
     isValid: false,
   });
+  const [successMessage, setSuccessMessage] = useState("");
   const history = useHistory();
 
   const handleChangeInput = (e) => {
@@ -52,7 +54,12 @@ function Register(props) {
         username: userInfo.username,
         password: userInfo.password,
       });
+      setSuccessMessage("Register is Success!");
       localStorage.setItem("userInfo", JSON.stringify(users));
+      setTimeout(() => {
+        setSuccessMessage("");
+        history.push("/login");
+      }, 1500);
     }
   };
 
@@ -70,6 +77,15 @@ function Register(props) {
         <form className={classes.form}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
+              {successMessage !== "" && (
+                <Alert
+                  variant="filled"
+                  severity="success"
+                  style={{ marginBottom: "1.5em" }}
+                >
+                  {successMessage}
+                </Alert>
+              )}
               <TextField
                 autoComplete="username"
                 name="username"

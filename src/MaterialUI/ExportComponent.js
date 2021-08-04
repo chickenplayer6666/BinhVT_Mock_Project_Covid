@@ -55,10 +55,8 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import TableChartIcon from "@material-ui/icons/TableChart";
 
-//import AdapterDateFns from "@material-ui/lab/AdapterDateFns";
+import Alert from "@material-ui/lab/Alert";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-// import DateRangePicker from "@material-ui/lab/DateRangePicker";
-// import LocalizationProvider from "@material-ui/lab/LocalizationProvider";
 import { DataGrid } from "@material-ui/data-grid";
 
 import ArticleStyles from "../Components/Layout/News/Article/ArticleNews"
@@ -124,6 +122,7 @@ export {
   SettingsIcon,
   PowerSettingsNewIcon,
   TableChartIcon,
+  Alert,
   Autocomplete,
   ArticleStyles,
   CardStyles,

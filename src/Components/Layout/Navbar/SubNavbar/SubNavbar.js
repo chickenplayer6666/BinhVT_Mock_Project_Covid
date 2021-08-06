@@ -74,7 +74,7 @@ function SubNavbar({ anchorEl, closeSubNavbarCB }) {
             inputProps={{ "aria-label": "secondary checkbox" }}
           />
         </ListItemIcon>
-        <ListItemText primary={translate ? "Viet Nam" : "English"} />
+        <ListItemText primary={translate ? "Việt Nam" : "English"} />
       </StyledSubNavItem>
       <StyledSubNavItem>
         <ListItemIcon>
@@ -86,9 +86,7 @@ function SubNavbar({ anchorEl, closeSubNavbarCB }) {
             inputProps={{ "aria-label": "secondary checkbox" }}
           />
         </ListItemIcon>
-        <ListItemText
-          primary={darkMode ? t("Dark Mode.1") : t("Light Mode.1")}
-        />
+        <ListItemText primary={darkMode ? t("Dark Mode") : t("Light Mode")} />
       </StyledSubNavItem>
       <StyledSubNavItem>
         <ListItemIcon>
@@ -98,9 +96,9 @@ function SubNavbar({ anchorEl, closeSubNavbarCB }) {
           />
         </ListItemIcon>
         {localStorage.getItem("isAuthenticated") ? (
-          <ListItemText primary={t("Logout.1")} onClick={handleLogOut} />
+          <ListItemText primary={t("Logout")} onClick={handleLogOut} />
         ) : (
-          <ListItemText primary={t("Login.1")} onClick={handleLogIn} />
+          <ListItemText primary={t("Login")} onClick={handleLogIn} />
         )}
       </StyledSubNavItem>
     </StyledSubNav>

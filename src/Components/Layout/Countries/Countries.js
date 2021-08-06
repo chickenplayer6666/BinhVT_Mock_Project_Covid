@@ -1,14 +1,22 @@
+import { useTranslation } from "react-i18next";
 import React, { useEffect, useState } from "react";
 
-import { Container, DataGrid, SearchStyles, Grid, Typography } from "../../../MaterialUI/ExportComponent";
+import {
+  Container,
+  DataGrid,
+  SearchStyles,
+  Grid,
+  Typography,
+} from "../../../MaterialUI/ExportComponent";
 import { SearchCountry } from "../../index";
 import countryApi from "../../../Service/countryAPI";
-import countriesTableColumns from "../../../Constant/countriesTableColumns";
+import countriesTableColumns from "../../../Utils/countriesTableColumns";
 
 function Countries(props) {
   const classes = SearchStyles();
   const [countries, setCountries] = useState([]);
   const [pageSize, setPageSize] = React.useState(10);
+  const { t } = useTranslation();
   useEffect(() => {
     handleGetAllCountries();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -30,7 +38,7 @@ function Countries(props) {
         <Grid container spacing={3} xs={12}>
           <Grid item sm={8} xs={12} spacing={5}>
             <Typography variant="h4" component="h4">
-              Situation by Region, Country, Territory & Area
+              {t("Situation by Region, Country, Territory & Area")}
             </Typography>
           </Grid>
           <Grid item sm={4} xs={12}>
@@ -49,7 +57,7 @@ function Countries(props) {
         >
           <DataGrid
             rows={countries}
-            columns={countriesTableColumns}
+            columns={countriesTableColumns(t)}
             getRowId={(row) => row.updated}
             pagination
             pageSize={pageSize}
@@ -62,4 +70,4 @@ function Countries(props) {
   );
 }
 
-export default Countries;
+export default React.memo(Countries);

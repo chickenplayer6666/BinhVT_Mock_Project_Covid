@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 
 import {
   Autocomplete,
@@ -15,6 +16,7 @@ function SearchCountry(props) {
   const [countries, setCountries] = useState([]);
   const history = useHistory();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     handleGetAllCountries();
@@ -47,7 +49,7 @@ function SearchCountry(props) {
           <TextField
             {...params}
             id="outlined-basic"
-            placeholder="Search Country..."
+            placeholder={`${t("Search Country")}...`}
             variant="outlined"
             autoFocus
             InputProps={{

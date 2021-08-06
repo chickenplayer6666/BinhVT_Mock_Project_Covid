@@ -35,8 +35,8 @@ function Countries(props) {
   return (
     <>
       <Container>
-        <Grid container spacing={3} xs={12}>
-          <Grid item sm={8} xs={12} spacing={5}>
+        <Grid container spacing={3}>
+          <Grid item sm={8} xs={12}>
             <Typography variant="h4" component="h4">
               {t("Situation by Region, Country, Territory & Area")}
             </Typography>

@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
-import { useTranslation } from "react-i18next";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import {
   Drawer,
@@ -12,31 +12,18 @@ import {
   SidebarStyles,
 } from "../../../MaterialUI/ExportComponent";
 import { BooleansOfPageActions } from "../../../redux/rootAction";
-import { NavigationToPageAction } from "../../../redux/slices/setNavigationToPageSlice"
+import { NavigationToPageAction } from "../../../redux/slices/setNavigationToPageSlice";
 import { MENU_NAVBAR } from "../../../Constant/MenuNavbar";
-import { useHistory } from 'react-router-dom';
-
-//import {SidebarStyles} from '../../../MaterialUI/CustomStyles/SidebarStyles';
+import { useHistory } from "react-router-dom";
 
 const Sidebar = (props) => {
   const classes = SidebarStyles();
-  const translate = useSelector(
-    (state) => state.BooleansOfPageReducer.isTranslate
-  );
   const displaySidebar = useSelector(
     (state) => state.BooleansOfPageReducer.isDisplaySidebar
   );
   const history = useHistory();
   const dispatch = useDispatch();
-  const { t, i18n } = useTranslation();
-
-  useEffect(() => {
-    i18n.changeLanguage("en-US");
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  useEffect(() => {
-    translate ? i18n.changeLanguage("vi-VN") : i18n.changeLanguage("en-US");
-  }, [translate]); // eslint-disable-line react-hooks/exhaustive-deps
+  const { t } = useTranslation();
 
   const handleSidebarToggle = () => {
     dispatch(BooleansOfPageActions.toggleSidebar(!displaySidebar));
@@ -69,28 +56,27 @@ const Sidebar = (props) => {
           <Divider />
           <List>
             {MENU_NAVBAR.map((item, index) => (
-              <>
+              <React.Fragment key={index + item.menu}>
                 <ListItem
                   button
-                  key={index + item.menu}
                   onClick={() => handleNavigationPage(item.path)}
                 >
                   <ListItemIcon>
                     <i className={item.icon} />
                   </ListItemIcon>
                   <ListItemText
-                    primary={t(`${item.menu}.1`)}
+                    primary={t(item.menu)}
                     style={{ marginLeft: "-1.5em" }}
                   />
                 </ListItem>
                 <Divider />
-              </>
+              </React.Fragment>
             ))}
           </List>
         </div>
       </Drawer>
     </nav>
   );
-}
+};
 
 export default Sidebar;

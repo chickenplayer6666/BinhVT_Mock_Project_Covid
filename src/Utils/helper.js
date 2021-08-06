@@ -11,8 +11,11 @@ export const transformToMapData = (data) => {
   for (let i = 0; i < data.length; i++) {
     const object = {};
     object.code3 = data[i].countryInfo.iso3;
-    object.z = data[i].cases;
+    object.flag = data[i].countryInfo.flag;
+    object.country = data[i].country;
     object.textCases = new Intl.NumberFormat().format(data[i].cases);
+    object.textRecovered = new Intl.NumberFormat().format(data[i].recovered);
+    object.textDeaths = new Intl.NumberFormat().format(data[i].deaths);
     object.color = checkColor(data[i].cases);
     newData.push(object);
   }

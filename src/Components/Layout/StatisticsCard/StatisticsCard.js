@@ -1,5 +1,6 @@
 import React from "react";
 import CountUp from "react-countup";
+import { useTranslation } from "react-i18next";
 
 import {
   Grid,
@@ -11,6 +12,7 @@ import {
 
 function StatisticsCard({ statistics }) {
   const classes = CardStyles(statistics);
+  const { t } = useTranslation();
 
   return (
     <Grid container spacing={3}>
@@ -23,7 +25,7 @@ function StatisticsCard({ statistics }) {
                 component="p"
                 className={classes.title}
               >
-                {data.title}
+                {t(data.title)}
               </Typography>
               <Typography
                 variant="body2"

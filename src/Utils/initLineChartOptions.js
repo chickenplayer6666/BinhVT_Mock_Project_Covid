@@ -1,4 +1,4 @@
-const initLineChartOptions = (data, filterDate) => {
+const initLineChartOptions = (data, filterDate, func) => {
   return {
     chart: {
       type: "areaspline",
@@ -6,7 +6,7 @@ const initLineChartOptions = (data, filterDate) => {
       height: 500,
     },
     title: {
-      text: "Statistical Chart Summary",
+      text: func("Statistical Chart Summary"),
     },
     xAxis: {
       categories: filterDate,
@@ -41,17 +41,17 @@ const initLineChartOptions = (data, filterDate) => {
     },
     series: [
       {
-        name: "Cases",
+        name: func("Cases"),
         data: filterDate.map((item) => data.cases[item]),
         color: "#c9302c",
       },
       {
-        name: "Recovered",
+        name: func("Recovered"),
         data: filterDate.map((item) => data.recovered[item]),
         color: "#28a745",
       },
       {
-        name: "Deaths",
+        name: func("Deaths"),
         data: filterDate.map((item) => data.deaths[item]),
         color: "gray",
       },

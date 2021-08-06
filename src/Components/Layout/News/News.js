@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {useDispatch} from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import newsAPI from "../../../Service/newsAPI";
 import { MainLayout, ArticleNews } from "../../index";
@@ -15,6 +16,7 @@ import { BooleansOfPageActions } from "../../../redux/slices/setBooleansOfPage";
 function News(props) {
   const [articles, setArticles] = useState([]);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     handleGetDataNews();
@@ -54,7 +56,7 @@ function News(props) {
               <TextField
                 {...params}
                 id="outlined-basic"
-                placeholder="Search Country..."
+                placeholder={`${t('Search Title')}...`}
                 variant="outlined"
                 autoFocus
                 InputProps={{

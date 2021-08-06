@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import countryApi from "../../../Service/countryAPI";
+import { useTranslation } from "react-i18next";
 
+import countryApi from "../../../Service/countryAPI";
 import { transformToMapData } from "../../../Utils/helper";
 import {
   MainLayout,
@@ -14,6 +15,7 @@ import setStatisticsForCard from "../../../Utils/setStatisticsForCard";
 function Overview(props) {
   const [worldData, setWorldData] = useState();
   const [statisticsOverview, setStatisticsOverview] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     handleGetAllCountries();
@@ -34,7 +36,7 @@ function Overview(props) {
   return (
     <MainLayout>
       <Typography variant="h4" component="h4">
-        WHO Coronavirus (COVID-19) Dashboard
+        {t("WHO Coronavirus (COVID-19) Dashboard")}
       </Typography>
       <Box container spacing={3} marginTop={5}>
         <WorldMap worldData={worldData} />

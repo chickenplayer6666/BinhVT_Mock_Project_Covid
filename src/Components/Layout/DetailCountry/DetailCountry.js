@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import moment from "moment";
 
 import {
@@ -15,6 +16,7 @@ function DetailCountry(props) {
   const paramURL = props.match.params.country;
   const [country, setCountry] = useState({});
   const [statistics, setStatistics] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     handleGetDataOfCountry(paramURL);
@@ -37,7 +39,7 @@ function DetailCountry(props) {
               {country && country.country}
             </Typography>
             <Typography variant="h5" component="h4">
-              Statistics COVID-19
+              {t("Statistics")} COVID-19
             </Typography>
             <Typography>{moment().format("LLL")}</Typography>
           </Grid>
@@ -56,4 +58,4 @@ function DetailCountry(props) {
   );
 }
 
-export default DetailCountry;
+export default React.memo(DetailCountry);

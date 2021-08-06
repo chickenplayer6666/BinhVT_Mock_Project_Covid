@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import countryApi from "../../../Service/countryAPI";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import { useTranslation } from "react-i18next";
 
 import initLineChartOptions from "../../../Utils/initLineChartOptions";
 import { Button, ButtonGroup } from "../../../MaterialUI/ExportComponent";
@@ -11,6 +12,7 @@ function StatisticalChart({ paramURL }) {
   const [filterDate, setFilterDate] = useState([]);
   const [reportType, setReportType] = useState("all");
   const [options, setOptions] = useState({});
+  const { t } = useTranslation();
 
   useEffect(() => {
     handleGetDataForChart(paramURL);
@@ -37,8 +39,8 @@ function StatisticalChart({ paramURL }) {
         customData = filterDate;
         break;
     }
-    setOptions(initLineChartOptions(dataChart, customData));
-  }, [dataChart, reportType]); // eslint-disable-line react-hooks/exhaustive-deps
+    setOptions(initLineChartOptions(dataChart, customData, t));
+  }, [dataChart, reportType, t]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleGetDataForChart = async (endpoint) => {
     try {
@@ -52,13 +54,13 @@ function StatisticalChart({ paramURL }) {
       const { data } = res;
       setDataChart(data);
       setFilterDate(Object.keys(data.cases));
-      setOptions(initLineChartOptions(res.data, Object.keys(data.cases)));
+      setOptions(initLineChartOptions(res.data, Object.keys(data.cases), t));
     } else {
       const { timeline } = res.data;
       setDataChart(timeline);
       setFilterDate(Object.keys(timeline.cases));
       setOptions(
-        initLineChartOptions(res.data.timeline, Object.keys(timeline.cases))
+        initLineChartOptions(res.data.timeline, Object.keys(timeline.cases), t)
       );
     }
   };
@@ -77,19 +79,19 @@ function StatisticalChart({ paramURL }) {
           color={reportType === "all" ? "secondary" : ""}
           onClick={() => setReportType("all")}
         >
-          Tất cả
+          {t("All")}
         </Button>
         <Button
           color={reportType === "30" ? "secondary" : ""}
           onClick={() => setReportType("30")}
         >
-          30 ngày
+          30 {t("Day")}
         </Button>
         <Button
           color={reportType === "7" ? "secondary" : ""}
           onClick={() => setReportType("7")}
         >
-          7 ngày
+          7 {t("Day")}
         </Button>
       </ButtonGroup>
       <HighchartsReact highcharts={Highcharts} options={options} />
@@ -97,4 +99,4 @@ function StatisticalChart({ paramURL }) {
   );
 }
 
-export default StatisticalChart;
+export default React.memo(StatisticalChart);

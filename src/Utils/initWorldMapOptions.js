@@ -1,4 +1,4 @@
-const initWorldMapOptions = (mapWorld, data) => {
+const initWorldMapOptions = (mapWorld, data, func) => {
   return {
     chart: {
       height: "500",
@@ -17,25 +17,25 @@ const initWorldMapOptions = (mapWorld, data) => {
         {
           color: "#95DCF4",
           from: 0,
-          name: "cases<0.1M",
+          name: func("Cases") + "<0.1M",
           to: 100000,
         },
         {
           color: "#00ACE3",
           from: 1000000,
-          name: "cases<1M",
+          name: func("Cases") + "<1M",
           to: 1e6,
         },
         {
           color: "#00ACE3",
           from: 1e6,
-          name: "cases<10M",
+          name: func("Cases") + "<10M",
           to: 1e7,
         },
         {
           color: "#007092",
           from: 1e7,
-          name: "cases>10M",
+          name: func("Cases") + ">10M",
         },
       ],
     },
@@ -45,14 +45,32 @@ const initWorldMapOptions = (mapWorld, data) => {
       verticalAlign: "bottom",
     },
     tooltip: {
-      pointFormat: "{point.properties.name}: {point.textCases}",
+      useHTML: true,
+      pointFormat: `
+      <div style="display: flex; align-items: center; justify-content: flex-start">
+        <img style="width: 50px; height: 30px;" src={point.flag} />
+        <b>&nbsp{point.properties.name}</b>
+      </div> 
+      <br />
+      <b style="color: #c9302c">
+        ${func("Total Cases")}: {point.textCases}
+      </b> 
+      <br /> 
+      <b style="color: #28a745">
+        ${func("Total Recovered")}: {point.textRecovered}
+      </b> 
+      <br /> 
+      <b style="color: gray">
+        ${func("Total Deaths")}: {point.textDeaths}
+      </b>
+      `,
     },
     series: [
       {
         data: data,
         mapData: mapWorld,
-        joinBy: ["iso-a3", "code3", "textCases"],
-        name: "Total cases",
+        joinBy: ["iso-a3", "code3"],
+        name: func("Statistics"),
         borderColor: "#555",
         borderWidth: 0.5,
         states: {

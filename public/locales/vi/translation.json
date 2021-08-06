@@ -1,23 +1,28 @@
 {
-  "Login": {
-    "1": "Đăng Nhập"
-  },
-  "Logout": {
-    "1": "Đăng Xuất"
-  },
-  "News": {
-    "1": "Tin Tức"
-  },
-  "Overview": {
-    "1": "Tổng Quan"
-  },
-  "Data Table": {
-    "1": "Dữ Liệu Thống Kê"
-  },
-  "Dark Mode": {
-    "1": "Chế Độ Tối"
-  },
-  "Light Mode": {
-    "1": "Chế Độ Sáng"
-  }
+  "Login": "Đăng Nhập",
+  "Logout": "Đăng Xuất",
+  "News": "Tin Tức",
+  "Overview": "Tổng Quan",
+  "Data Table": "Dữ Liệu Thống Kê",
+  "Dark Mode": "Chế Độ Tối",
+  "Light Mode": "Chế Độ Sáng",
+  "Search Title": "Tìm kiếm nội dung",
+  "Search Country": "Tìm kiếm Quốc Gia",
+  "Country": "Quốc Gia",
+  "Continent": "Châu Lục",
+  "Total Cases": "Tổng số ca nhiễm",
+  "Today Cases": "Số ca nhiễm trong ngày",
+  "Cases": "Số ca nhiễm",
+  "Total Recovered": "Tổng số ca khỏi",
+  "Today Recovered": "Số ca khỏi trong ngày",
+  "Recovered": "Số ca khỏi",
+  "Total Deaths": "Tổng số ca chết",
+  "Today Deaths": "Số ca chết trong ngày",
+  "Deaths": "Số ca chết",
+  "Situation by Region, Country, Territory & Area": "Tình hình theo Khu Vực, Quốc Gia và Vùng Lãnh Thổ",
+  "Statistics": "Số liệu thống kê",
+  "Statistical Chart Summary": "Tóm tắt biểu đồ thống kê",
+  "All": "Tất cả",
+  "Day": "Ngày",
+  "WHO Coronavirus (COVID-19) Dashboard": "Số liệu tổng hợp về Virus Corona(COVID-19) từ WHO"
 }

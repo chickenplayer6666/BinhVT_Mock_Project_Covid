@@ -1,6 +1,11 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 import {
   AuthRoute,
@@ -48,7 +53,9 @@ function App() {
       {isError && <Error />}
       <Router>
         <Switch>
-          <Route exact path="/" component={News} />
+          <Route exact path="/">
+            <Redirect to="/news" />
+          </Route>
           <Route path="/news" component={News} />
           <Route path="/register" component={Register} />
           <PrivateRoute path="/overview" component={Overview} />

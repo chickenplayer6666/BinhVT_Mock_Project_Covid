@@ -16,8 +16,8 @@ function StatisticsCard({ statistics }) {
 
   return (
     <Grid container spacing={3}>
-      {statistics.map((data) => (
-        <Grid item sm={4} xs={12}>
+      {statistics.map((data, index) => (
+        <Grid item sm={4} xs={12} key={index}>
           <Card style={data.borderLeft}>
             <CardContent>
               <Typography

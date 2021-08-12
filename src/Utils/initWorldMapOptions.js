@@ -40,9 +40,9 @@ const initWorldMapOptions = (mapWorld, data) => {
       ],
     },
     legend: {
-      layout: "vertical",
-      align: "right",
+      align: "center",
       verticalAlign: "bottom",
+      layout: "horizontal",
     },
     tooltip: {
       pointFormat: "{point.properties.name}: {point.textCases}",

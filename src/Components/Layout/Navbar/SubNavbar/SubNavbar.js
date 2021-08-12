@@ -12,6 +12,7 @@ import {
   Switch,
   PowerSettingsNewIcon,
 } from "../../../../MaterialUI/ExportComponent";
+import { ValueOfTranslatesAction } from "../../../../redux/slices/setValueOfTranslates";
 
 function SubNavbar({ anchorEl, closeSubNavbarCB }) {
   const translate = useSelector(
@@ -20,20 +21,27 @@ function SubNavbar({ anchorEl, closeSubNavbarCB }) {
   const darkMode = useSelector(
     (state) => state.BooleansOfPageReducer.isDarkMode
   );
+  const setLanguage = useSelector(
+    (state) => state.ValueOfTranslatesReducer.language
+  );
   const { t, i18n } = useTranslation();
   const history = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    i18n.changeLanguage("en-US");
+    i18n.changeLanguage(setLanguage);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  useEffect(() => {
+    i18n.changeLanguage(setLanguage);
+  }, [setLanguage]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const handleTranslate = () => {
-    if (translate) {
-      i18n.changeLanguage("en-US");
+    if (translate === true) {
+      dispatch(ValueOfTranslatesAction.translateLanguage("en-US"));
       dispatch(BooleansOfPageActions.toggleTranslate(!translate));
     } else {
-      i18n.changeLanguage("vi-VN");
+      dispatch(ValueOfTranslatesAction.translateLanguage("vi-VN"));
       dispatch(BooleansOfPageActions.toggleTranslate(!translate));
     }
   };

@@ -1,4 +1,9 @@
 import { BooleansOfPageActions } from "./slices/setBooleansOfPage";
-import {NavigationToPageAction} from "./slices/setNavigationToPageSlice"
+import { NavigationToPageAction } from "./slices/setNavigationToPageSlice";
+import { ValueOfTranslatesAction } from "./slices/setValueOfTranslates";
 
-export { BooleansOfPageActions, NavigationToPageAction };
+export {
+  BooleansOfPageActions,
+  NavigationToPageAction,
+  ValueOfTranslatesAction,
+};
